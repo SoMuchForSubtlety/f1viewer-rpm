@@ -45,15 +45,8 @@ BuildRequires:  golang(golang.org/x/text/transform)
 %prep
 %goprep
 
-%build
-for cmd in _demos terminfo views/_demos; do
-  %gobuild -o %{gobuilddir}/bin/$(basename $cmd) %{goipath}/$cmd
-done
-
 %install
 %gopkginstall
-install -m 0755 -vd                     %{buildroot}%{_bindir}
-install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %if %{with check}
 %check
@@ -64,11 +57,12 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %license LICENSE
 %doc AUTHORS README.adoc terminfo/README.md terminfo/TERMINALS.md
 %doc terminfo/models.txt views/README.md
-%{_bindir}/*
 
 %gopkgfiles
 
 %changelog
+* Tue Nov 24 21:15:45 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 2.0.0-2
+- Don't build demos
 * Tue Nov 24 20:33:09 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 2.0.0-1
 - Initial package
 
