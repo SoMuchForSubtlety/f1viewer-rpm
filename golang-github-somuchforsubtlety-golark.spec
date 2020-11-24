@@ -3,7 +3,7 @@
 
 # https://github.com/SoMuchForSubtlety/golark
 %global goipath         github.com/SoMuchForSubtlety/golark
-Version:                1.1.0
+Version:                1.1.1
 
 %gometa
 
@@ -17,8 +17,7 @@ Name:           %{goname}
 Release:        1%{?dist}
 Summary:        A Skylark API client for go
 
-License:        GPL-3.0-only
-# FIXME: Upstream uses unknown SPDX tag GPL-3.0-only!
+License:        GPLv3
 URL:            %{gourl}
 Source0:        %{gosource}
 
@@ -46,6 +45,8 @@ BuildRequires:  golang(github.com/stretchr/testify/assert)
 %gopkgfiles
 
 %changelog
+* Tue Nov 24 20:59:34 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.1.1-1
+- Fix test
 * Tue Nov 24 20:34:26 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.1.0-1
 - Initial package
 
