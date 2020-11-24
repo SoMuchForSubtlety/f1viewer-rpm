@@ -24,14 +24,14 @@ Rich interactive widgets for terminal-based UIs written in Go.}
 
 Name:           %{goname}
 Version:        0
-Release:        0.1%{?dist}
+Release:        0.2%{?dist}
 Summary:        Rich interactive widgets for terminal-based UIs written in Go
 
 License:        MIT
 URL:            %{gourl}
 Source0:        %{gosource}
 
-BuildRequires:  golang(github.com/gdamore/tcell/v2)
+BuildRequires:  golang(github.com/gdamore/tcell)
 BuildRequires:  golang(github.com/lucasb-eyer/go-colorful)
 BuildRequires:  golang(github.com/mattn/go-runewidth)
 BuildRequires:  golang(github.com/rivo/uniseg)
@@ -73,6 +73,8 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
+* Tue Nov 24 22:12:40 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.2.20201124gitf007e9a
+- Fix tcell dependency
 * Tue Nov 24 20:32:42 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.1.20201124gitf007e9a
 - Initial package
 
