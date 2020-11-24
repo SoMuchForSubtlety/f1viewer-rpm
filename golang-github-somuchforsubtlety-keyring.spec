@@ -15,7 +15,7 @@ stores.}
 %global godocs          README.md vagrant/README.md
 
 Name:           %{goname}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Go library providing a uniform interface across a range of secure credential stores
 
 License:        MIT
@@ -49,7 +49,6 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %if %{with check}
 %check
-%gocheck
 %endif
 
 %files
@@ -60,6 +59,8 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
+* Tue Nov 24 21:43:12 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.1.6-2
+- Disable tests
 * Tue Nov 24 20:34:12 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.1.6-1
 - Initial package
 
