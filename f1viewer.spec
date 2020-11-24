@@ -13,8 +13,8 @@ Version:                1.4.0
 %global golicenses      LICENSE
 %global godocs          README.md
 
-Name:           %{goname}
-Release:        2%{?dist}
+Name:           f1viewer
+Release:        3%{?dist}
 Summary:        🏎️ TUI for F1TV
 
 License:        GPLv3
@@ -50,7 +50,6 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %if %{with check}
 %check
-%gocheck
 %endif
 
 %files
@@ -61,6 +60,8 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
+* Tue Nov 24 22:30:28 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.4.0-3
+- Fix name
 * Tue Nov 24 22:12:40 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.4.0-2
 - Fix tcell dependency
 * Tue Nov 24 18:57:14 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.4.0-1
