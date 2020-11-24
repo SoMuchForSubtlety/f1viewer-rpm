@@ -22,7 +22,7 @@ URL:            %{gourl}
 Source0:        %{gosource}
 
 BuildRequires:  golang(github.com/atotto/clipboard)
-BuildRequires:  golang(github.com/gdamore/tcell)
+BuildRequires:  golang(github.com/gdamore/tcell/v2)
 BuildRequires:  golang(github.com/rivo/tview)
 BuildRequires:  golang(github.com/SoMuchForSubtlety/golark)
 BuildRequires:  golang(github.com/SoMuchForSubtlety/keyring)

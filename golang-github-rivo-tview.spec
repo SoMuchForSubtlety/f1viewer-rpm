@@ -31,7 +31,7 @@ License:        MIT
 URL:            %{gourl}
 Source0:        %{gosource}
 
-BuildRequires:  golang(github.com/gdamore/tcell)
+BuildRequires:  golang(github.com/gdamore/tcell/v2)
 BuildRequires:  golang(github.com/lucasb-eyer/go-colorful)
 BuildRequires:  golang(github.com/mattn/go-runewidth)
 BuildRequires:  golang(github.com/rivo/uniseg)
