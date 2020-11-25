@@ -3,6 +3,7 @@
 
 # https://github.com/gdamore/tcell
 %global goipath         github.com/gdamore/tcell/v2
+%global commit          7d87d8188c8d3a236c778107d4925a9b2465a5f6
 Version:                2.0.0
 
 %gometa
@@ -17,7 +18,7 @@ better in others.}
                         views/README.md
 
 Name:           %{goname}
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Tcell is an alternate terminal package, similar in some ways to termbox, but better in others
 
 # Upstream license specification: Apache-2.0
@@ -61,6 +62,8 @@ BuildRequires:  golang(golang.org/x/text/transform)
 %gopkgfiles
 
 %changelog
+* Tue Nov 25 12:02:35 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 2.0.0-4
+- try to fix version
 * Tue Nov 24 22:39:48 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 2.0.0-3
 - Use v2
 * Tue Nov 24 21:15:45 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 2.0.0-2
