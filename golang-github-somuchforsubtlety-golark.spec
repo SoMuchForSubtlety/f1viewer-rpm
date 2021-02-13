@@ -3,7 +3,7 @@
 
 # https://github.com/SoMuchForSubtlety/golark
 %global goipath         github.com/SoMuchForSubtlety/golark
-Version:                1.1.1
+Version:                1.2.0
 
 %gometa
 
@@ -14,17 +14,12 @@ A Skylark API client for go.}
 %global godocs          README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        A Skylark API client for go
 
 License:        GPLv3
 URL:            %{gourl}
 Source0:        %{gosource}
-
-%if %{with check}
-# Tests
-BuildRequires:  golang(github.com/stretchr/testify/assert)
-%endif
 
 %description
 %{common_description}
@@ -39,11 +34,14 @@ BuildRequires:  golang(github.com/stretchr/testify/assert)
 
 %if %{with check}
 %check
+%gocheck
 %endif
 
 %gopkgfiles
 
 %changelog
+* Sat Feb 13 23:33:24 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 1.2.0-1
+- Upgrade to 1.2.0
 * Tue Nov 24 21:43:12 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.1.1-2
 - Disable tests
 * Tue Nov 24 20:59:34 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.1.1-1
