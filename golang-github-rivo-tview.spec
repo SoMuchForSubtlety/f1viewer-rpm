@@ -3,29 +3,20 @@
 
 # https://github.com/rivo/tview
 %global goipath         github.com/rivo/tview
-%global commit          f007e9ad3893af1068c32017864c9b50bef38c1b
+%global commit          dbc1f32bb1d02db2f8c497700b7db237362d4ff8
 
 %gometa
 
 %global common_description %{expand:
-Rich interactive widgets for terminal-based UIs written in Go.}
+Rich interactive widgets for your terminal UI, written in Go.}
 
 %global golicenses      LICENSE.txt
-%global godocs          CODE_OF_CONDUCT.md CONTRIBUTING.md README.md\\\
-                        demos/box/README.md demos/button/README.md\\\
-                        demos/checkbox/README.md demos/dropdown/README.md\\\
-                        demos/flex/README.md demos/form/README.md\\\
-                        demos/frame/README.md demos/grid/README.md\\\
-                        demos/inputfield/README.md demos/list/README.md\\\
-                        demos/modal/README.md demos/pages/README.md\\\
-                        demos/primitive/README.md demos/table/README.md\\\
-                        demos/textview/README.md demos/treeview/README.md\\\
-                        demos/unicode/README.md
+%global godocs          README.md
 
 Name:           %{goname}
 Version:        0
-Release:        0.2%{?dist}
-Summary:        Rich interactive widgets for terminal-based UIs written in Go
+Release:        0.1%{?dist}
+Summary:        Rich interactive widgets for your terminal UI, written in Go
 
 License:        MIT
 URL:            %{gourl}
@@ -44,15 +35,9 @@ BuildRequires:  golang(github.com/rivo/uniseg)
 %prep
 %goprep
 
-%build
-for cmd in demos/unicode demos/checkbox demos/treeview demos/box demos/flex demos/textview demos/button demos/list demos/frame demos/grid demos/inputfield/autocompleteasync demos/dropdown demos/table demos/inputfield/autocomplete demos/pages demos/form demos/inputfield demos/modal demos/primitive demos/presentation; do
-  %gobuild -o %{gobuilddir}/bin/$(basename $cmd) %{goipath}/$cmd
-done
 
 %install
 %gopkginstall
-install -m 0755 -vd                     %{buildroot}%{_bindir}
-install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %if %{with check}
 %check
@@ -61,18 +46,13 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %files
 %license LICENSE.txt
-%doc CODE_OF_CONDUCT.md CONTRIBUTING.md README.md demos/box/README.md
-%doc demos/button/README.md demos/checkbox/README.md demos/dropdown/README.md
-%doc demos/flex/README.md demos/form/README.md demos/frame/README.md
-%doc demos/grid/README.md demos/inputfield/README.md demos/list/README.md
-%doc demos/modal/README.md demos/pages/README.md demos/primitive/README.md
-%doc demos/table/README.md demos/textview/README.md demos/treeview/README.md
-%doc demos/unicode/README.md
-%{_bindir}/*
+%doc CODE_OF_CONDUCT.md CONTRIBUTING.md README.md
 
 %gopkgfiles
 
 %changelog
+* Sun Feb 14 00:13:27 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.1.20210214gitdbc1f32
+- Upgrade to latest commit 
 * Tue Nov 24 22:12:40 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.2.20201124gitf007e9a
 - Fix tcell dependency
 * Tue Nov 24 20:32:42 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.1.20201124gitf007e9a
