@@ -3,7 +3,7 @@
 
 # https://github.com/SoMuchForSubtlety/f1viewer
 %global goipath         github.com/SoMuchForSubtlety/f1viewer
-Version:                1.4.0
+Version:                1.5.0
 
 %gometa
 
@@ -14,7 +14,7 @@ Version:                1.4.0
 %global godocs          README.md
 
 Name:           f1viewer
-Release:        3%{?dist}
+Release:        1%{?dist}
 Summary:        🏎️ TUI for F1TV
 
 License:        GPLv3
@@ -23,7 +23,8 @@ Source0:        %{gosource}
 
 BuildRequires:  golang(github.com/atotto/clipboard)
 BuildRequires:  golang(github.com/gdamore/tcell/v2)
-BuildRequires:  golang(github.com/rivo/tview)
+BuildRequires:  golang(github.com/SoMuchForSubtlety/tview)
+BuildRequires:  golang(github.com/skratchdot/open-golang/open)
 BuildRequires:  golang(github.com/SoMuchForSubtlety/golark)
 BuildRequires:  golang(github.com/SoMuchForSubtlety/keyring)
 
@@ -60,6 +61,8 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %gopkgfiles
 
 %changelog
+* Wed Mar 24 20:30:16 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 1.5.0-1
+- upgrade to 1.5.0
 * Tue Nov 24 22:30:28 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.4.0-3
 - Fix name
 * Tue Nov 24 22:12:40 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 1.4.0-2

@@ -3,12 +3,12 @@
 
 # https://github.com/rivo/tview
 %global goipath         github.com/rivo/tview
-%global commit          dbc1f32bb1d02db2f8c497700b7db237362d4ff8
+%global commit          ae9464cc3598d81fff6813af3e28f292a9de6c15
 
 %gometa
 
 %global common_description %{expand:
-Rich interactive widgets for your terminal UI, written in Go.}
+Terminal UI library with rich, interactive widgets — written in Golang.}
 
 %global golicenses      LICENSE.txt
 %global godocs          README.md
@@ -16,7 +16,7 @@ Rich interactive widgets for your terminal UI, written in Go.}
 Name:           %{goname}
 Version:        0
 Release:        0.1%{?dist}
-Summary:        Rich interactive widgets for your terminal UI, written in Go
+Summary:        Terminal UI library with rich, interactive widgets — written in Golang
 
 License:        MIT
 URL:            %{gourl}
@@ -51,10 +51,11 @@ BuildRequires:  golang(github.com/rivo/uniseg)
 %gopkgfiles
 
 %changelog
+* Wed Mar 24 20:24:07 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.1.20210324gitae9464c
+- upgrade to latest version
 * Sun Feb 14 00:13:27 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.1.20210214gitdbc1f32
 - Upgrade to latest commit 
 * Tue Nov 24 22:12:40 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.2.20201124gitf007e9a
 - Fix tcell dependency
 * Tue Nov 24 20:32:42 CET 2020 SoMuchForSubtlety <jakob@ahrer.dev> - 0-0.1.20201124gitf007e9a
 - Initial package
-
