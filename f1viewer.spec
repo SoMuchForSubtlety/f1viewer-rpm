@@ -1,15 +1,19 @@
 Version:        2.3.0
 Name:           f1viewer
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        🏎️ TUI for F1TV
 
 License:        GPLv3
 URL:            https://github.com/SoMuchForSubtlety/%{name}
 Source0:        https://github.com/SoMuchForSubtlety/%{name}/archive/refs/tags/v%{version}.tar.gz
 
+%if 0%{?suse_version}
+BuildRequires:  go
+%else
 BuildRequires:  golang
+%endif
 BuildRequires:  git
-Requires:       xclip
+Suggests:       xclip
 
 # stop rpmbuild from trying to extract debug info
 %define debug_package %{nil}
@@ -21,10 +25,8 @@ extensible TUI application to access F1TV
 %setup -q
 
 %build
-go env -w GO111MODULE="on"
 go env -w GOPROXY="https://proxy.golang.org,direct"
 go env -w GOSUMDB="sum.golang.org"
-go env
 go build \
     -trimpath \
     -ldflags="-s -w -X main.version=${pkgver}" \
@@ -40,6 +42,8 @@ install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
 %doc README.md
 
 %changelog
+* Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-5
+- suse compatability
 * Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-4
 - set go proxy and sum db
 * Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-3
