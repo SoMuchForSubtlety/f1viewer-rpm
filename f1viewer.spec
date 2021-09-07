@@ -1,6 +1,6 @@
 Version:        2.3.0
 Name:           f1viewer
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        🏎️ TUI for F1TV
 
 License:        GPLv3
@@ -21,6 +21,7 @@ extensible TUI application to access F1TV
 %setup -q
 
 %build
+go env -w GO111MODULE=on
 go build \
     -trimpath \
     -ldflags="-s -w -X main.version=${pkgver}" \
@@ -36,6 +37,8 @@ install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
 %doc README.md
 
 %changelog
+* Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-3
+- set go to module mode
 * Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-2
 - add git build dependency
 * Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-1
