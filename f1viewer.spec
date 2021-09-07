@@ -1,6 +1,6 @@
 Version:        2.3.0
 Name:           f1viewer
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        🏎️ TUI for F1TV
 
 License:        GPLv3
@@ -29,7 +29,7 @@ go env -w GOPROXY="https://proxy.golang.org,direct"
 go env -w GOSUMDB="sum.golang.org"
 go build \
     -trimpath \
-    -ldflags="-s -w -X main.version=${pkgver}" \
+    -ldflags="-s -w -X main.version=%{version}" \
     -o %{name} main.go
 
 %install
@@ -42,6 +42,8 @@ install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
 %doc README.md
 
 %changelog
+* Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-6
+- fix ldflags version param
 * Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-5
 - suse compatability
 * Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-4
