@@ -1,6 +1,6 @@
 Version:        2.3.0
 Name:           f1viewer
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        🏎️ TUI for F1TV
 
 License:        GPLv3
@@ -8,6 +8,7 @@ URL:            https://github.com/SoMuchForSubtlety/%{name}
 Source0:        https://github.com/SoMuchForSubtlety/%{name}/archive/refs/tags/v%{version}.tar.gz
 
 BuildRequires:  golang
+BuildRequires:  git
 Requires:       xclip
 
 # stop rpmbuild from trying to extract debug info
@@ -35,6 +36,8 @@ install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
 %doc README.md
 
 %changelog
+* Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-2
+- add git build dependency
 * Tue Sep 7 22:30:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.3.0-1
 - don't use rpm2go
 * Wed Mar 24 20:30:16 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 1.5.0-1
