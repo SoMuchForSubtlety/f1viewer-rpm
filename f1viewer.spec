@@ -1,18 +1,14 @@
 Version:        2.5.0
 Name:           f1viewer
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        🏎️ TUI for F1TV
 
 License:        GPLv3
 URL:            https://github.com/SoMuchForSubtlety/%{name}
 Source0:        https://github.com/SoMuchForSubtlety/%{name}/archive/refs/tags/v%{version}.tar.gz
 
-%if 0%{?suse_version}
-BuildRequires:  go
-%else
-BuildRequires:  golang
-%endif
 BuildRequires:  git
+BuildRequires:  wget
 Suggests:       xclip
 
 # stop rpmbuild from trying to extract debug info
@@ -23,9 +19,11 @@ extensible TUI application to access F1TV
 
 %prep
 %setup -q
+wget -q -O - https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh | bash
 
 %build
-go build \
+source /builddir/.bashrc
+CGO_ENABLED=0 go build \
     -trimpath \
     -ldflags="-s -w -X main.version=%{version}" \
     -o %{name} main.go
@@ -40,7 +38,9 @@ install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
 %doc README.md
 
 %changelog
-* Sun Dec 1 19:02:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.5.0-1
+* Wed Dec 1 19:15:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.5.0-2
+- use go1.17 for build
+* Wed Dec 1 19:02:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.5.0-1
 - bump release to 2.5.0
 * Sun Oct 31 15:33:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.4.0-1
 - bump release to 2.4.0
