@@ -1,4 +1,4 @@
-Version:        2.6.0
+Version:        2.6.1
 Name:           f1viewer
 Release:        1%{?dist}
 Summary:        🏎️ TUI for F1TV
@@ -38,6 +38,8 @@ install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
 %doc README.md
 
 %changelog
+* Sat Mar 26 22:20:00 CET 2022 SoMuchForSubtlety <jakob@ahrer.dev> - 2.6.1-1
+- bump release to 2.6.0
 * Wed Dec 1 19:15:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.6.0-1
 - bump release to 2.6.0
 * Wed Dec 1 19:15:00 CET 2021 SoMuchForSubtlety <jakob@ahrer.dev> - 2.5.0-2
